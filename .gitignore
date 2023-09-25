@@ -1,0 +1,4 @@
+azure-bastion/ssh-keys/*
+azure-bastion/.terraform/providers/*
+azure-vm-bastion/.terraform/providers/*
+azure-rg/providers/*

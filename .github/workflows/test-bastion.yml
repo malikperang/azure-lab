@@ -1,0 +1,27 @@
+name: Trigger Hello World inside Bastion Target VM's
+
+on:
+  push:
+    branches:
+      - main  # Replace with your main branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Azure CLI
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Connect to Azure VM via Bastion
+        run: |
+          # Replace with your Azure-specific commands to connect to VMs via Bastion
+          # Example:
+          # az network bastion connect --name MyBastion --resource-group MyResourceGroup --vm-name MyVM --vm-resource-group MyVMResourceGroup --port 3389
+          az network bastion ssh 
+        shell: bash
